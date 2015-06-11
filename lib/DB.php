@@ -44,8 +44,9 @@ class DB{
 
         if (mysqli_affected_rows($this->connection) > 0) {
 
-            while( $row = mysqli_fetch_assoc($result)){
-                $result[] = $row;
+            while( $row = mysqli_fetch_assoc($result))
+            {
+                $returnList[] = $row;
             }
         }
         return $returnList;
