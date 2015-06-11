@@ -36,6 +36,29 @@ class Products{
 
         ?>
         </table>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".add-to-basket").click(function(){
+                    var product_id = $(this).attr('data-item-id');
+
+                    $.post('?controller=basket&action=addInBasket', {
+                        product_id: product_id
+                    }, function(){
+                        alert("Added product ("+product_id+") to basket");
+                    });
+                });
+
+                $(".remove-from-basket").click(function(){
+                    var product_id = $(this).attr('data-item-id');
+
+                    $.post('?controller=basket&action=removeFromBasket', {
+                        product_id: product_id
+                    }, function(){
+                        alert("Removed product ("+product_id+") from basket");
+                    });
+                });
+            });
+        </script>
         <?php
 
         if( count($list) == 0){
