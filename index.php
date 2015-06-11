@@ -2,15 +2,20 @@
 require_once "lib/Validate.php";
 require_once "functions/html.php";
 
+require_once "pages/home.php";
+require_once "pages/user.php";
+
+
 $contoller = Validate::get('controller','string', 'index');
 $action = Validate::get('action', 'string', 'index');
 
 if($contoller == 'index'){
     html_header();
-    echo "Home";
+
+    $page = new Home();
 
     if($action == "index"){
-        echo "-> index";
+        $page->index();
     }
 
     html_footer();
@@ -19,24 +24,12 @@ if($contoller == 'index'){
 
     html_header();
 
-    echo "User";
-    if($action == 'login'){
-        ?>
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
+    $page = new User();
 
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <?php
+    if($action == 'login'){
+        $page->login();
     } else {
-        echo "-> index";
+        $page->index();
     }
 
     html_footer();
