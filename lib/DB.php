@@ -36,4 +36,18 @@ class DB{
         }
         return false;
     }
+
+    public function select($query){
+        $returnList = [];
+
+        $result = mysqli_query($this->connection, $query);
+
+        if (mysqli_affected_rows($this->connection) > 0) {
+
+            while( $row = mysqli_fetch_assoc($result)){
+                $result[] = $row;
+            }
+        }
+        return $returnList;
+    }
 }
