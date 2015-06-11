@@ -5,6 +5,7 @@ require_once "functions/html.php";
 
 require_once "pages/home.php";
 require_once "pages/user.php";
+require_once "pages/products.php";
 
 
 $contoller = Validate::get('controller','string', 'home');
