@@ -1,5 +1,6 @@
 <?php
 require_once "lib/Validate.php";
+require_once "lib/DB.php";
 require_once "functions/html.php";
 
 require_once "pages/home.php";

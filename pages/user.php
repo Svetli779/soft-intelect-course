@@ -11,8 +11,21 @@ class User{
         $email = Validate::post('email');
         $password = Validate::post('password');
 
+        $email = 'mraiur@gmail.com';
+        $password = '1234';
+
+        $db = DB::getInstance();
+        $user = $db->queryOne("SELECT * FROM users WHERE email = '$email' and pwd = '$password' ");
+
+        if($user){
+            echo "<pre>".print_r($user, true)."</pre>";
+        } else {
+            echo "Nqma takuv potrebitel";
+        }
+
+
         if($email != null && $password != null){
-            
+
         }
 
         html_header();?>
