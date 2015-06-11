@@ -1,10 +1,10 @@
 <?php
 class Validate{
-    public static function get( $nameOfVariable, $validate, $defaultValue = null ){
+    public static function get( $nameOfVariable, $validate = 'string', $defaultValue = null ){
         return self::doValidate($_GET, $nameOfVariable, $validate, $defaultValue);
     }
 
-    public static function post($nameOfVariable, $validate, $defaultValue = null){
+    public static function post($nameOfVariable, $validate = 'string', $defaultValue = null){
         return self::doValidate($_POST, $nameOfVariable, $validate, $defaultValue);
     }
     public static function doValidate($InputList, $nameOfVariable, $validate, $defaultValue = null){
